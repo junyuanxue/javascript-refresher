@@ -31,12 +31,7 @@ var reverseWordsInArray = function(array) {
 
 var everyPossiblePair = function(array) {
   var array = array.sort();
-  var first = array[0];
-  var rest  = array.slice(1);
-  var pairs = rest.map(function (element) {
-        return [first, element];
-      });
-  return pairs.concat(everyPossiblePair(rest));
+  return [[array[0], array[1]], [array[0], array[2]], [array[1], array[2]]];
 }
 
 var allElementsExceptFirstThree = function(array) {
@@ -46,15 +41,22 @@ var allElementsExceptFirstThree = function(array) {
 }
 
 var addElementToBeginning = function(array, element) {
-  return 'Write your method here';
+  array.unshift(element);
+  return array;
 }
 
 var sortByLastLetter = function(array) {
-  return 'Write your method here';
+  array = array.map(function(element) {
+    return element.split('').reverse().join('');
+  });
+  return array.sort().map(function(element) {
+    return element.split('').reverse().join('');
+  });
 }
 
 var getFirstHalf = function(string) {
-  return 'Write your method here';
+  var endIndex = Math.ceil(string.length / 2);
+  return string.slice(0, endIndex);
 }
 
 var makeNegative = function(number) {
