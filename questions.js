@@ -161,19 +161,26 @@ var sumKeysAndValues = function(object) {
 }
 
 var removeCapitals = function(string) {
-  return 'Write your method here';
+  var noCaps = string.split('').filter(function(letter) {
+    return letter !== letter.toUpperCase() || letter === ' ';
+  });
+  return noCaps.join('');
 }
 
 var roundUp = function(number) {
-  return 'Write your method here';
+  return Math.ceil(number);
 }
 
 var formatDateNicely = function(date) {
-  return 'Write your method here';
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+  return '0' + day + '/0' + month + '/' + year;
 }
 
 var getDomainName = function(string) {
-  return 'Write your method here';
+  var domain = string.replace(/.*@/, "").replace(/.com/,"");
+  return domain;
 }
 
 var titleize = function(string) {
