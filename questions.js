@@ -198,25 +198,42 @@ var titleize = function(string) {
 }
 
 var checkForSpecialCharacters = function(string) {
-  return 'Write your method here';
+  return string.match(/[^a-zA-Z0-9]/) !== null;
 }
 
 var squareRoot = function(number) {
-  return 'Write your method here';
+  return Math.sqrt(number);
 }
 
 var factorial = function(number) {
-  return 'Write your method here';
+  if(number === 0) {
+    return 1;
+  }
+  if(number < 0 ) {
+    return undefined;
+  }
+  for (var i = number - 1; i > 0; i--) {
+    number *= i;
+  }
+  return number;
 }
 
 var findAnagrams = function(string) {
-  return 'Write your method here';
+  var anagrams = [];
+  return anagrams;
 }
 
 var convertToCelsius = function(number) {
-  return 'Write your method here';
+  return (Math.round((number - 32) * 5 / 9));
 }
 
 var letterPosition = function(array) {
-  return 'Write your method here';
+  var alphabet = ['a', 'b', 'c', 'd', 'e', 'f',
+                  'g', 'h', 'i', 'j', 'k', 'l',
+                  'm', 'n', 'o', 'p', 'q', 'r',
+                  's', 't', 'u', 'v', 'w', 'x',
+                  'y', 'z'];
+  return array.map(function(letter) {
+    return (alphabet.indexOf(letter.toLowerCase()) + 1);
+  });
 }
