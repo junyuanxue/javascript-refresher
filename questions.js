@@ -184,7 +184,17 @@ var getDomainName = function(string) {
 }
 
 var titleize = function(string) {
-  return 'Write your method here';
+  var words = string.split(' ');
+  var title = [];
+  for (i = 0; i < words.length; i++) {
+    if (i > 0 && (words[i] === 'the' || words[i] === 'and' && words[i-1].slice(-1) !== '.')) {
+      title.push(words[i]);
+    } else {
+      var cap = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      title.push(cap);
+    }
+  }
+  return title.join(' ');
 }
 
 var checkForSpecialCharacters = function(string) {
