@@ -36,7 +36,6 @@ var everyPossiblePair = function(array) {
   var pairs = rest.map(function (element) {
         return [first, element];
       });
-
   return pairs.concat(everyPossiblePair(rest));
 }
 
