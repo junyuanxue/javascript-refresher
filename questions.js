@@ -60,55 +60,104 @@ var getFirstHalf = function(string) {
 }
 
 var makeNegative = function(number) {
-  return 'Write your method here';
+  return Math.abs(number) * (-1);
 }
 
 var numberOfPalindromes = function(array) {
-  return 'Write your method here';
+  var palindromes = array.filter(function(string) {
+    return string === string.split('').reverse().join('');
+  });
+  return palindromes.length;
 }
 
 var shortestWord = function(array) {
-  return 'Write your method here';
+  var shortest = array[0];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length < shortest.length) {
+      shortest = array[i];
+    }
+  }
+  return shortest;
 }
 
 var longestWord = function(array) {
-  return 'Write your method here';
+  var longest = '';
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length > longest.length) {
+      longest = array[i];
+    }
+  }
+  return longest;
 }
 
 var sumNumbers = function(array) {
-  return 'Write your method here';
+  return array.reduce(function(sum, value) { return sum + value; }, 0);
 }
 
 var repeatElements = function(array) {
-  return 'Write your method here';
+  return [array, array].reduce(function(a, b) {
+    return a.concat(b);
+  });
 }
 
 var stringToNumber = function(string) {
-  return 'Write your method here';
+  return parseInt(string);
 }
 
 var calculateAverage = function(array) {
-  return 'Write your method here';
+  var sum = array.reduce(function(sum, value) { return sum + value; }, 0);
+  return sum / array.length;
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
-  return 'Write your method here';
+  var elements = [];
+  for (var i = 0; i < array.length && array[i] <= 5; i++) {
+    if (array[i] <= 5) {
+      elements.push(array[i]);
+    }
+  }
+  return elements;
 }
 
 var convertArrayToObject = function(array) {
-  return 'Write your method here';
+  var object = {};
+  for(var i = 0; i < array.length; i += 2) {
+    object[array[i]] = array[i+1];
+  }
+  return object;
 }
 
 var getAllLetters = function(array) {
-  return 'Write your method here';
+  var splitWords = array.map(function(word) {
+    return word.split('');
+  });
+
+  var letters = splitWords.reduce(function(a, b) {
+    return a.concat(b);
+  });
+
+  var uniqueLetters = letters.filter(function(letter, index, letters) {
+    return letters.indexOf(letter) == index;
+  });
+
+  return uniqueLetters.sort();
 }
 
 var swapKeysAndValues = function(object) {
-  return 'Write your method here';
+  newObject = {};
+  for (var key in object) {
+    newObject[object[key]] = key;
+  }
+  return newObject;
 }
 
 var sumKeysAndValues = function(object) {
-  return 'Write your method here';
+  var array = [];
+  for (var key in object) {
+    array.push(parseInt(key));
+    array.push(object[key]);
+  }
+  return array.reduce(function(sum, value) { return sum + value; }, 0);
 }
 
 var removeCapitals = function(string) {
